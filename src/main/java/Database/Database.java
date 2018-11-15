@@ -5,18 +5,36 @@ import Team.Team;
 import User.*;
 
 public class Database {
-    private ArrayList<Team> teams=new ArrayList<Team>();
+    public Team team;
     private ArrayList<User> users=new ArrayList<User>();
+    private User signedIn = null;
+
+    public void setSignedIn(User user){
+        this.signedIn = user;
+    }
 
     public boolean addTeam(String teamName){
-        Team newTeam = new Team(teamName);
+        this.team = new Team(teamName);
         return true;
     }
 
-    public boolean addUser(UUID addedBy, String username, String password, String email){
+    public Team getTeam(){
+        return this.team;
+    }
+
+    public boolean addUser(String username, String password, String email){
+        for (User user : users){
+            if(user.getUsername().equals(username)) return false;
+        }
         User newUser = new User(username, password, email);
         users.add(newUser);
         return true;
+    }
+
+    public User addAdmin(String username, String password, String email){
+        Admin newUser = new Admin(username, password, email);
+        users.add(newUser);
+        return newUser;
     }
 
     public boolean removeUser(String usernameToRemove){
@@ -44,7 +62,12 @@ public class Database {
         return usernames;
     }
 
-    public ArrayList<Team> getTeams() {
-        return teams;
+    public User getUser(String name){
+        for (User user : users){
+            if (user.getUsername().equals(name))
+                return user;
+        }
+        return null;
     }
+
 }

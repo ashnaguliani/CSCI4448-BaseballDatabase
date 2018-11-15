@@ -14,7 +14,6 @@ public class Statistic {
     public UUID getCreatedBy() {
         return createdBy;
     }
-
     public UUID getStatisticID() {
         return statisticID;
     }

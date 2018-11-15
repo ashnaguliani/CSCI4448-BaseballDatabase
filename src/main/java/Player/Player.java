@@ -1,33 +1,26 @@
 package Player;
 
+import Statistics.Statistic;
+
+import java.util.ArrayList;
+
 public class Player {
     private final String playerID;
-    private boolean batter;
-    private boolean pitcher;
+    private ArrayList<Statistic> statistics=new ArrayList<Statistic>();
 
-    public Player(String playerID, boolean batter, boolean pitcher){
+    public Player(String playerID){
         this.playerID = playerID;
-        this.batter = batter;
-        this.pitcher = pitcher;
     }
 
     public String getPlayerId() {
         return playerID;
     }
 
-    public boolean getBatter() {
-        return batter;
+    public void addStatistic(Statistic statistic){
+        statistics.add(statistic);
     }
 
-    public boolean getPitcher() {
-        return pitcher;
-    }
-
-    public void setBatter(boolean batter) {
-        this.batter = batter;
-    }
-
-    public void setPitcher(boolean pitcher) {
-        this.pitcher = pitcher;
+    public ArrayList<Statistic> getStatistics() {
+        return statistics;
     }
 }

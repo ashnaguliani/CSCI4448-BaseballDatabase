@@ -5,7 +5,6 @@ import java.util.UUID;
 public class BattingStatistic extends Statistic{
     private int games;
     private int plateAppearances;
-    private int atBats;
     private int runs;
     private int hits;
     private int doubles;
@@ -17,13 +16,12 @@ public class BattingStatistic extends Statistic{
     private int walks;
     private int strikeouts;
 
-    public BattingStatistic(UUID createdBy, int games, int plateAppearances, int atBats, int runs, int hits,
+    public BattingStatistic(UUID createdBy, int games, int plateAppearances, int runs, int hits,
                             int doubles, int triples, int homeRuns, int runsBattedIn, int stolenBases,
                             int caughtStealing, int walks, int strikeouts) {
         super(createdBy);
         this.games = games;
         this.plateAppearances = plateAppearances;
-        this.atBats = atBats;
         this.runs = runs;
         this.hits = hits;
         this.doubles = doubles;
@@ -50,14 +48,6 @@ public class BattingStatistic extends Statistic{
 
     public void setPlateAppearances(int plateAppearances) {
         this.plateAppearances = plateAppearances;
-    }
-
-    public int getAtBats() {
-        return atBats;
-    }
-
-    public void setAtBats(int atBats) {
-        this.atBats = atBats;
     }
 
     public int getRuns() {

@@ -26,14 +26,14 @@ public class Team {
         return playersOnTeam;
     }
 
-    boolean addPlayer(String playerID, boolean batter, boolean pitcher)
+    public boolean addPlayer(String playerID)
     {
-        Player newPlayer = new Player(playerID, batter, pitcher);
+        Player newPlayer = new Player(playerID);
         playersOnTeam.add(newPlayer);
         return true;
     }
 
-    boolean removePlayer(String playerIDToRemove){
+    public boolean removePlayer(String playerIDToRemove){
         int indexToRemove = -1;
         for (int counter = 0; counter < playersOnTeam.size(); counter++) {
             if(playersOnTeam.get(counter).getPlayerId().equals(playerIDToRemove)){
