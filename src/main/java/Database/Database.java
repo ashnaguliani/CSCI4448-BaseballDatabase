@@ -13,6 +13,8 @@ public class Database {
         this.signedIn = user;
     }
 
+    public User getSignedIn() { return this.signedIn;}
+
     public boolean addTeam(String teamName){
         this.team = new Team(teamName);
         return true;

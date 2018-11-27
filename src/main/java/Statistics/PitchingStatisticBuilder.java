@@ -76,7 +76,11 @@ public class PitchingStatisticBuilder {
         return this;
     }
 
-    public PitchingStatistic createPitchingStatistic() {
-        return new PitchingStatistic(createdBy, games, wins, saves, losses, inningsPitched, runs, hits, earnedRuns, homeRuns, walks, strikeouts);
+    public PitchingStatistic createPitchingStatistic( UUID createdBy, int games, int wins, int saves, int losses,
+                                                      int inningsPitched, int runs, int hits, int earnedRuns,
+                                                      int homeRuns, int walks, int strikeouts)
+    {
+        return new PitchingStatistic(createdBy, games, wins, saves, losses, inningsPitched, runs, hits, earnedRuns,
+                homeRuns, walks, strikeouts);
     }
 }

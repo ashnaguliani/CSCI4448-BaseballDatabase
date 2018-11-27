@@ -10,6 +10,9 @@ public class Main {
         database.addTeam("colorado buffaloes");
         database.addAdmin("ashna", "a_password", "a_email");
         database.addUser("rhea", "r_password", "r_email");
+        database.team.addPlayer("britt");
+        database.team.addPlayer("madi");
+        database.setSignedIn(database.getUser("ashna")); //fake login
 
         SparkEndpoints sparkEndpoints = new SparkEndpoints(userAuthentication, database);
         sparkEndpoints.serve();

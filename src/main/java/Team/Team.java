@@ -28,6 +28,11 @@ public class Team {
 
     public boolean addPlayer(String playerID)
     {
+        for (Player player: playersOnTeam){
+            if (player.getPlayerId().equals(playerID)){
+                return false;
+            }
+        }
         Player newPlayer = new Player(playerID);
         playersOnTeam.add(newPlayer);
         return true;

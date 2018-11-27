@@ -82,7 +82,11 @@ public class BattingStatisticBuilder {
         return this;
     }
 
-    public BattingStatistic createBattingStatistic() {
-        return new BattingStatistic(createdBy, games, plateAppearances, runs, hits, doubles, triples, homeRuns, runsBattedIn, stolenBases, caughtStealing, walks, strikeouts);
+    public BattingStatistic createBattingStatistic(UUID createdBy, int games, int plateAppearances, int runs, int hits,
+                                                   int doubles, int triples, int homeRuns, int runsBattedIn,
+                                                   int stolenBases, int caughtStealing, int walks, int strikeouts)
+    {
+        return new BattingStatistic(createdBy, games, plateAppearances, runs, hits, doubles, triples,
+                homeRuns, runsBattedIn, stolenBases, caughtStealing, walks, strikeouts);
     }
 }
