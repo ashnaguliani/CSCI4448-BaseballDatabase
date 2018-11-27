@@ -5,10 +5,12 @@ import java.util.UUID;
 public class Statistic {
     private final UUID statisticID;
     private final UUID createdBy;
+    public String type;
 
-    Statistic(UUID createdBy){
+    Statistic(UUID createdBy, String type){
         this.statisticID = UUID.randomUUID();
         this.createdBy = createdBy;
+        this.type = type;
     }
 
     public UUID getCreatedBy() {

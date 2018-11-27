@@ -1,8 +1,9 @@
 package Player;
 
 import Statistics.Statistic;
-
 import java.util.ArrayList;
+import java.util.UUID;
+
 
 public class Player {
     private final String playerID;
@@ -22,5 +23,15 @@ public class Player {
 
     public ArrayList<Statistic> getStatistics() {
         return statistics;
+    }
+
+    public boolean removeStatistic(UUID statisticID){
+        for (Statistic stat : statistics){
+            if (stat.getStatisticID().equals(statisticID)){
+                statistics.remove(stat);
+                return true;
+            }
+        }
+        return false;
     }
 }

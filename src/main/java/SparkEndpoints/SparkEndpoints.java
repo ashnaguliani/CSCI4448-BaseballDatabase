@@ -167,5 +167,31 @@ public class SparkEndpoints {
         }, JsonUtil.json());
 
 
+        get("/get_all_statistics", (req, res) -> database.team.getTeamStatistics(), JsonUtil.json());
+
+        post("/remove_statistic", (req, res) -> {
+            JsonObject jsonObject = new JsonParser().parse(req.body()).getAsJsonObject();
+            if(database.getSignedIn() == null){
+                return "Error: Not signed in";
+            }
+            User signedIn = database.getSignedIn();
+            String playerID = jsonObject.get("playerID").getAsString();
+            UUID statisticID = UUID.fromString(jsonObject.get("statisticID").getAsString());
+
+            if(signedIn.getUserID().equals(database.getAdmin().getUserID())){
+                ArrayList<Player> playersOnTeam = database.team.getPlayersOnTeam();
+                for (Player player : playersOnTeam){
+                    if(player.getPlayerId().equals(playerID)){
+                        player.removeStatistic(statisticID);
+                        return "Statistic removed";
+                    }
+                }
+                res.status(400);
+                return new ResponseError("PlayerID not found", playerID);
+            }
+            res.status(400);
+            return new ResponseError("Admin access denied", signedIn.getUsername());
+
+        }, JsonUtil.json());
     }
 }

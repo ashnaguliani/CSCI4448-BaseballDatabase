@@ -17,7 +17,7 @@ public class PitchingStatistic extends Statistic{
 
     public PitchingStatistic(UUID createdBy, int games, int wins, int saves, int losses, int inningsPitched,
                              int runs, int hits, int earnedRuns, int homeRuns, int walks, int strikeouts) {
-        super(createdBy);
+        super(createdBy, "pitching");
         this.games = games;
         this.wins = wins;
         this.saves = saves;

@@ -7,6 +7,7 @@ import User.*;
 public class Database {
     public Team team;
     private ArrayList<User> users=new ArrayList<User>();
+    private User admin = null;
     private User signedIn = null;
 
     public void setSignedIn(User user){
@@ -35,6 +36,7 @@ public class Database {
 
     public User addAdmin(String username, String password, String email){
         Admin newUser = new Admin(username, password, email);
+        admin = newUser;
         users.add(newUser);
         return newUser;
     }
@@ -70,6 +72,10 @@ public class Database {
                 return user;
         }
         return null;
+    }
+
+    public User getAdmin(){
+        return admin;
     }
 
 }

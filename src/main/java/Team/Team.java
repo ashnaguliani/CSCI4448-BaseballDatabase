@@ -2,11 +2,12 @@ package Team;
 
 import Player.Player;
 import java.util.*;
+import Statistics.*;
 
 public class Team {
     private final UUID teamID;
     private final String teamName;
-    private ArrayList<Player> playersOnTeam=new ArrayList<Player>();
+    private ArrayList<Player> playersOnTeam=new ArrayList<>();
 
     public Team(String teamName)
     {
@@ -51,4 +52,12 @@ public class Team {
         }else return false;
     }
 
+
+    public ArrayList<Statistic> getTeamStatistics(){
+        ArrayList<Statistic> statistics =new ArrayList<>();
+        for(Player player : playersOnTeam){
+            statistics.addAll(player.getStatistics());
+        }
+        return statistics;
+    }
 }

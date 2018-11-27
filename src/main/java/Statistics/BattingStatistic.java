@@ -19,7 +19,7 @@ public class BattingStatistic extends Statistic{
     public BattingStatistic(UUID createdBy, int games, int plateAppearances, int runs, int hits,
                             int doubles, int triples, int homeRuns, int runsBattedIn, int stolenBases,
                             int caughtStealing, int walks, int strikeouts) {
-        super(createdBy);
+        super(createdBy, "batting");
         this.games = games;
         this.plateAppearances = plateAppearances;
         this.runs = runs;
