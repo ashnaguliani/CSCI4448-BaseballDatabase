@@ -33,6 +33,8 @@ Admin can remove any statistical entry
 
 
 [OPTIONAL] Stretch Functionality: 
+
 Admin can search for an entry
+
 Admin can view all of a particular user’s entries
 
