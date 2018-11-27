@@ -16,9 +16,8 @@ public class Database {
 
     public User getSignedIn() { return this.signedIn;}
 
-    public boolean addTeam(String teamName){
+    public void addTeam(String teamName){
         this.team = new Team(teamName);
-        return true;
     }
 
     public Team getTeam(){
@@ -34,11 +33,10 @@ public class Database {
         return true;
     }
 
-    public User addAdmin(String username, String password, String email){
+    public void addAdmin(String username, String password, String email){
         Admin newUser = new Admin(username, password, email);
         admin = newUser;
         users.add(newUser);
-        return newUser;
     }
 
     public boolean removeUser(String usernameToRemove){
@@ -56,14 +54,6 @@ public class Database {
 
     public ArrayList<User> getUsers() {
         return users;
-    }
-
-    public ArrayList<String> getUsernames() {
-        ArrayList<String> usernames = new ArrayList<String>();
-        for (User user : users){
-            usernames.add(user.getUsername());
-        }
-        return usernames;
     }
 
     public User getUser(String name){

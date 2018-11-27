@@ -60,16 +60,22 @@ public class SparkEndpoints {
         }, JsonUtil.json());
 
         post("/add_user", (req, res) -> {
-            JsonObject jsonObject = new JsonParser().parse(req.body()).getAsJsonObject();
-            String username = jsonObject.get("username").getAsString();
-            String password = jsonObject.get("password").getAsString();
-            String email = jsonObject.get("email").getAsString();
+            User signedIn = database.getSignedIn();
+            if(signedIn.getUserID().equals(database.getAdmin().getUserID())) {
+                JsonObject jsonObject = new JsonParser().parse(req.body()).getAsJsonObject();
+                String username = jsonObject.get("username").getAsString();
+                String password = jsonObject.get("password").getAsString();
+                String email = jsonObject.get("email").getAsString();
 
-            if(database.addUser(username, password, email)) return "User added";
-            else{
-                res.status(400);
-                return new ResponseError("Username taken", username);
+                if (database.addUser(username, password, email)) return "User added";
+                else {
+                    res.status(400);
+                    return new ResponseError("Username taken", username);
+                }
             }
+            res.status(400);
+            return new ResponseError("Admin access not granted", signedIn.getUsername());
+
         }, JsonUtil.json());
 
         get("/get_all_players", (req, res) -> database.team.getPlayersOnTeam(), JsonUtil.json());
