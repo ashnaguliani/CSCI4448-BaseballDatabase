@@ -22,13 +22,22 @@ public class SparkEndpoints {
     Gson gson = new Gson();
 
 
+    /**
+     * @param userAuthentication userAuth to be used
+     * @param database database to be used
+     */
     public SparkEndpoints(UserAuthentication userAuthentication, Database database)
     {
         this.userAuthentication = userAuthentication;
         this.database = database;
     }
 
+    /**
+     * Serves all Spark Endpoints
+     */
     public void serve() {
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
         get("/hello", (req, res) -> "Hello Dudes");
 
         post("/login", (req, res) -> {
@@ -181,7 +190,7 @@ public class SparkEndpoints {
                 return "Error: Not signed in";
             }
             User signedIn = database.getSignedIn();
-            String playerID = jsonObject.get("playerID").getAsString();
+            String playerID = "britt";//jsonObject.get("playerID").getAsString();
             UUID statisticID = UUID.fromString(jsonObject.get("statisticID").getAsString());
 
             if(signedIn.getUserID().equals(database.getAdmin().getUserID())){
@@ -192,11 +201,8 @@ public class SparkEndpoints {
                         return "Statistic removed";
                     }
                 }
-                res.status(400);
-                return new ResponseError("PlayerID not found", playerID);
             }
-            res.status(400);
-            return new ResponseError("Admin access denied", signedIn.getUsername());
+            return "not removed";
 
         }, JsonUtil.json());
     }

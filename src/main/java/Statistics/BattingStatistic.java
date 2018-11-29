@@ -16,6 +16,21 @@ public class BattingStatistic extends Statistic{
     private int walks;
     private int strikeouts;
 
+    /**
+     * @param createdBy - user who created the stat
+     * @param games - how many games the player appeared in
+     * @param plateAppearances - how many plate appearances the player had
+     * @param runs - how many runs the player scored
+     * @param hits - how many hits the player had
+     * @param doubles - how many doubles the player had
+     * @param triples - how many triples the player had
+     * @param homeRuns - how many home runs the player had
+     * @param runsBattedIn - how many runs the player batted in
+     * @param stolenBases - how many stolen bases the player had
+     * @param caughtStealing - how many times the player was caught stealing
+     * @param walks - how many times the player walked
+     * @param strikeouts - how many times the player struck out
+     */
     public BattingStatistic(UUID createdBy, int games, int plateAppearances, int runs, int hits,
                             int doubles, int triples, int homeRuns, int runsBattedIn, int stolenBases,
                             int caughtStealing, int walks, int strikeouts) {
@@ -34,99 +49,4 @@ public class BattingStatistic extends Statistic{
         this.strikeouts = strikeouts;
     }
 
-    public int getGames() {
-        return games;
-    }
-
-    public void setGames(int games) {
-        this.games = games;
-    }
-
-    public int getPlateAppearances() {
-        return plateAppearances;
-    }
-
-    public void setPlateAppearances(int plateAppearances) {
-        this.plateAppearances = plateAppearances;
-    }
-
-    public int getRuns() {
-        return runs;
-    }
-
-    public void setRuns(int runs) {
-        this.runs = runs;
-    }
-
-    public int getHits() {
-        return hits;
-    }
-
-    public void setHits(int hits) {
-        this.hits = hits;
-    }
-
-    public int getDoubles() {
-        return doubles;
-    }
-
-    public void setDoubles(int doubles) {
-        this.doubles = doubles;
-    }
-
-    public int getTriples() {
-        return triples;
-    }
-
-    public void setTriples(int triples) {
-        this.triples = triples;
-    }
-
-    public int getHomeRuns() {
-        return homeRuns;
-    }
-
-    public void setHomeRuns(int homeRuns) {
-        this.homeRuns = homeRuns;
-    }
-
-    public int getRunsBattedIn() {
-        return runsBattedIn;
-    }
-
-    public void setRunsBattedIn(int runsBattedIn) {
-        this.runsBattedIn = runsBattedIn;
-    }
-
-    public int getStolenBases() {
-        return stolenBases;
-    }
-
-    public void setStolenBases(int stolenBases) {
-        this.stolenBases = stolenBases;
-    }
-
-    public int getCaughtStealing() {
-        return caughtStealing;
-    }
-
-    public void setCaughtStealing(int caughtStealing) {
-        this.caughtStealing = caughtStealing;
-    }
-
-    public int getWalks() {
-        return walks;
-    }
-
-    public void setWalks(int walks) {
-        this.walks = walks;
-    }
-
-    public int getStrikeouts() {
-        return strikeouts;
-    }
-
-    public void setStrikeouts(int strikeouts) {
-        this.strikeouts = strikeouts;
-    }
 }
